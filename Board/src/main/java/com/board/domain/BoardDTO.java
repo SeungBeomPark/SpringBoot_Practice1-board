@@ -31,6 +31,8 @@ public class BoardDTO {
 	
 	private String deleteYn;
 	
+	private String secretYn;
+
 	private LocalDateTime insertTime;
 	
 	private LocalDateTime updateTime;
@@ -91,6 +93,14 @@ public class BoardDTO {
 
 	public void setDeleteYn(String deleteYn) {
 		this.deleteYn = deleteYn;
+	}
+	
+	public String getSecretYn() {
+		return secretYn;
+	}
+
+	public void setSecretYn(String secretYn) {
+		this.secretYn = secretYn;
 	}
 
 	public LocalDateTime getInsertTime() {

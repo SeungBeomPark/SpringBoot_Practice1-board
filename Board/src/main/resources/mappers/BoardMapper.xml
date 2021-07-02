@@ -15,7 +15,7 @@
 		, delete_time
 	</sql>
 	
-	<insert id="insertBoard"  parameterType="BoardDTO">
+	<insert id="insertBoard"  parameterType="com.board.domain.BoardDTO">
 		INSERT INTO tb_board(<include refid="boardColumns" />)
 		VALUES(
 		#{idx},
@@ -39,18 +39,8 @@
 		AND idx = #{idx}
 	</select>
 	
-	<select id="selectBoardDetail" parameterType="long" resultType="BoardDTO">
-		SELECT
-			<include refid="boardColumns" />
-		FROM
-			tb_board
-		WHERE
-			delete_yn = 'N'
-		AND
-			idx = #{idx}
-	</select>
 
-	<update id="updateBoard" parameterType="BoardDTO">
+	<update id="updateBoard" parameterType="com.board.domain.BoardDTO">
 		UPDATE tb_board
 		SET
 			  update_time = NOW()
@@ -72,7 +62,7 @@
 			idx = #{idx}
 	</update>
 
-	<select id="selectBoardList" parameterType="BoardDTO" resultType="BoardDTO">
+	<select id="selectBoardList" parameterType="com.board.domain.BoardDTO" resultType="BoardDTO">
 		SELECT
 			<include refid="boardColumns" />
 		FROM
@@ -85,7 +75,7 @@
 			insert_time DESC
 	</select>
 
-	<select id="selectBoardTotalCount" parameterType="BoardDTO" resultType="int">
+	<select id="selectBoardTotalCount" parameterType="com.board.domain.BoardDTO" resultType="int">
 		SELECT
 			COUNT(*)
 		FROM

@@ -8,7 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.CollectionUtils;
 
 import com.board.domain.BoardDTO;
-import com.board.mappers.BoardMapper;
+import com.board.mapper.BoardMapper;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 /**

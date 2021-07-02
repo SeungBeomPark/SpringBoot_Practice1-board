@@ -37,7 +37,7 @@ public class DBConfiguration {
 	public SqlSessionFactory sqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		factoryBean.setDataSource(dataSource());
-		factoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper/BoardMapper.xml"));
+		factoryBean.setMapperLocations(applicationContext.getResources("classpath:/mappers/BoardMapper.xml"));
 		factoryBean.setTypeAliasesPackage("com.board.domain");
 		factoryBean.setConfiguration(mybatisConfg());
 		return factoryBean.getObject();
