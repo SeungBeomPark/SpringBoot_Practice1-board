@@ -9,8 +9,6 @@ import org.springframework.util.CollectionUtils;
 
 import com.board.domain.BoardDTO;
 import com.board.mapper.BoardMapper;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 /**
@@ -30,8 +28,8 @@ class MapperTests {
 	@Test
 	public void testOfInsert() {
 		BoardDTO params = new BoardDTO();
-		params.setTitle("1번 게시글 제목");
-		params.setContent("1번 게시글 내용");
+		params.setTitle("3번 게시글 제목");
+		params.setContent("3번 게시글 내용");
 		params.setWriter("테스터");
 
 		int result = boardMapper.insertBoard(params);

@@ -1,7 +1,7 @@
 package com.board.domain;
 
 import java.time.LocalDateTime;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,11 +32,14 @@ public class BoardDTO {
 	private String deleteYn;
 	
 	private String secretYn;
-
-	private LocalDateTime insertTime;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private LocalDateTime insertTime;
+	 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime updateTime;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime deleteTime;
 	
 	public Long getIdx() {
