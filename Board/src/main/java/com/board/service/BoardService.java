@@ -14,5 +14,8 @@ public interface BoardService {
 	
 	public List<BoardDTO> getBoardList();
 	
+	// 게시글 조회수 증가 로직 추가
+	public boolean plusViewCnt(Long idx);
+	
 
 }

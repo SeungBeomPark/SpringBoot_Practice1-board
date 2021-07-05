@@ -1,5 +1,7 @@
 package com.board.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
@@ -46,6 +48,32 @@ public class BoardController {
 		}
 		
 		return "redirect:/board/list.do";
+	}
+	
+	@GetMapping(value = "/board/list.do")
+	public String openBoardList(Model model) {
+		List<BoardDTO> boardList = boardService.getBoardList();
+		model.addAttribute("boardList", boardList);
+		
+		return "board/list";
+		
+	}
+	
+	@GetMapping(value = "/board/view.do")
+	public String openBoardDetail(@RequestParam(value = "idx", required = false)Long idx, Model model){
+		if(idx == null) {
+			// 올바르지않은 접근 알림표시, 리스트 목록으로 리다이렉트(To-Do)
+			return "redirect:/board/list.do";
+		}
+		BoardDTO board = boardService.getBoardDetail(idx);
+		if(board == null || "Y".equals(board.getDeleteYn())) {
+			// 게시글이 없거나 삭제된 글이면 리스트 목록으로 리다이렉트
+			return "redirect:/board/list.do";
+		}
+		model.addAttribute("board", board);
+		//게시물 조회시에 조회수 증가하도록 
+		boardService.plusViewCnt(idx);
+		return "board/view";
 	}
 	
 

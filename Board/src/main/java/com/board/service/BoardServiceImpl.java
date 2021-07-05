@@ -52,5 +52,12 @@ public class BoardServiceImpl  implements BoardService{
 		}
 		return boardList;
 	}
+	@Override
+	public boolean plusViewCnt(Long idx) {
+		int queryResult = 0;
+		
+		queryResult = boardMapper.plusViewCnt(idx);		
+		return (queryResult == 1) ? true : false;
+	}
 
 }
