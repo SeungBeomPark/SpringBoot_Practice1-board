@@ -1,2 +1,2 @@
 # SpringBoot_Practice1-board
-스프링부트 연습1 - 게시판
+스프링부트 복습 - 게시판
